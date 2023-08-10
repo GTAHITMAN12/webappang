@@ -1,0 +1,10 @@
+[
+    {
+        "type":"Register",
+        "price":50
+    },
+    {
+        "type":"EMS",
+        "price":100
+    }
+]
