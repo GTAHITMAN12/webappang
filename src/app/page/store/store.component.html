@@ -6,15 +6,15 @@
 }
 </style>
 <div class="card-columns">
-    <div *ngFor="let product of products" >
+    <div *ngFor="let f of items" >
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="image">
+            <!--<img class="card-img-top" src="..." alt="image">-->
             <div class="card-body">
-                <h5 class="card-title" *ngIf="product.name" >{{product.name}}</h5>
-                <p class="card-text" *ngIf="product.description">{{product.description}}</p>
-                <p class="card-text" *ngIf="product.price">{{product.price}} B</p>
-                <a href="#" class="btn btn-primary" [title]="product.name + ' details'"
-                [routerLink]="['/products', product.id]">see details</a>
+                <h5 class="card-title" *ngIf="f.name" >{{f.name}}</h5>
+                <p class="card-text" *ngIf="f.description">{{f.description}}</p>
+                <p class="card-text" *ngIf="f.price">{{f.price}} B</p>
+                <a href="#" class="btn btn-primary" [title]="f.name + ' details'"
+                [routerLink]="['/products', f.id]">see details</a>
             </div>
         </div>
     </div>
