@@ -1,25 +1,51 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<style>
+  ul {
+  list-style-type: none;
+}
+li{
+  font-size:200%;
+}
+form{
+  font-size:200%;
+}
+.forms{
+  justify-content:space-between;
+  flex-wrap: wrap;
+
+}
+b{
+  align-tracks: start;
+  cursor: pointer;
+}
+ 
+</style>
 <h3>Cart</h3>
+<ul  class=".container-fluid">
+  <div class="list-group-item   " *ngFor="let items of item">
+    <li class="list-group-item d-flex justify-content-md-between justify-items-stretch; " >
+    <a class="text-justify">{{ items.id }}</a>
+    <a class="text-justify">{{ items.name  }}</a>
+    <a class="text-justify">{{ items.price | currency:'THB' }}</a>
+    <span class="badge badge-primary badge-pill">{{ items.count  }}</span></li></div>
+</ul>
 <p>
-  <a routerLink="/Shipping">Shipping Prices</a>
+  <b routerLink="/Shipping">Shipping Prices</b>
 </p>
-<div class="cart-item" *ngFor="let item of items">
-  <span>{{ item.name }}</span>
-  <span>{{ item.price | currency:"฿"  }}</span>
+<div class=".container-fluid">
+  <form [formGroup]="CheckoutForm">
+    <div >
+        <div class="field">
+        <label> name : </label>
+        <input  formControlName="name">
+        </div>
+        <div class="field">
+        <label> address : </label>
+        <input  formControlName="address">
+        </div>
+     </div>
+    <div  >
+      <button class="button is-success" type="button" (click)="onSubmit(); CheckoutForm.resetForm();">send order</button>
+    </div>
+  </form>
 </div>
-<form formGroup="CheckoutForm" (ngSubmit)="onSubmit()" >
-  <div>
-    <label for="name">
-      Name
-    </label>
-    <input id="name" type="text" formControlName="name">
-  </div>
-
-  <div>
-    <label for="address">
-      Address
-    </label>
-    <input id="address" type="text" formControlName="address">
-  </div>
-
-  <button class="button" type="submit">Purchase</button>
-</form>

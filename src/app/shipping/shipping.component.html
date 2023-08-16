@@ -11,7 +11,7 @@
     <tbody>
         <tr  *ngFor="let shipping of shippingCosts | async">
             <th>{{ shipping.type }}</th>
-            <th>{{ shipping.price | currency:"฿" }}</th>
+            <th>{{ shipping.price | currency:'THB'}}</th>
         </tr>
     </tbody>
 </table>

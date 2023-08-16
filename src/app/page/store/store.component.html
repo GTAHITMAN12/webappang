@@ -12,7 +12,7 @@
             <div class="card-body">
                 <h5 class="card-title" *ngIf="f.name" >{{f.name}}</h5>
                 <p class="card-text" *ngIf="f.description">{{f.description}}</p>
-                <p class="card-text" *ngIf="f.price">{{f.price}} B</p>
+                <p class="card-text" *ngIf="f.price">{{f.price | currency:'THB'}}</p>
                 <a href="#" class="btn btn-primary" [title]="f.name + ' details'"
                 [routerLink]="['/products', f.id]">see details</a>
             </div>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Data } from '@angular/router';
-import { products } from 'src/app/data';
+import { data } from 'src/app/data';
+ 
 import { StoreService } from 'src/app/store.service';
 @Component({
   selector: 'app-store',
@@ -9,8 +9,7 @@ import { StoreService } from 'src/app/store.service';
   styleUrls: ['./store.component.css']
 })
 export class StoreComponent {
-  products=products
-  items !: Data[]
+  items !: data[]
   itemForm !: FormGroup;
   isitemAdded: boolean = false;
   edititems :boolean = false;

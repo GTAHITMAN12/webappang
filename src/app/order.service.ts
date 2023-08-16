@@ -18,13 +18,12 @@ export class OrderService {
 
   items: Data2[] = [];
   addorder(value:Data2): Observable<Data2>{
+    console.log('sending...')
     const body = new HttpParams()
-    .set('order_id', value.order_id)
     .set('name', value.name)
     .set('price', value.price)
     .set('store_id', value.store_id)
     .set('address', value.address)
-
 
     let obs= this.http.post<Data2>
     ('http://localhost:3000/order/addorder',body.toString(),{headers: new HttpHeaders()
@@ -41,8 +40,8 @@ export class OrderService {
     );
   };
 
-  getorder(id: number): Observable<Data2> {
-    return this.http.get<Data2>(`http://localhost:3000/order/${id}`);
+  getorder(id: number): Observable<Data2[]> {
+    return this.http.get<Data2[]>(`http://localhost:3000/order/${id}`);
   }
  
   editorder(id: number,value:Data2): Observable<Data2> {
